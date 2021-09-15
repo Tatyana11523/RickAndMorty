@@ -14,7 +14,9 @@ export const RickMorty = () => {
   const search = useSelector(state => state.searchString.value);
 
     useEffect(() => {
+      if (search.length >= 2 || search.length === 0) {
         dispatch(searchGet(search, page));
+      }
     }, [search, page]);
 
   const characters = useSelector(state => state.search.pageStatus);
